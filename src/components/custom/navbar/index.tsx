@@ -24,7 +24,7 @@ export default function Navbar() {
     ]
 
     const solutionsLinks = [
-        { title: "Route Optimization", href: "/solutions/route-optimization" },
+        { title: "Route Optimization", href: "/route-optimization" },
         { title: "Inventory Management", href: "/solutions/inventory-management" },
         { title: "Asset Utilization", href: "/solutions/asset-utilization" },
         { title: "Process Automation", href: "/solutions/process-automation" },
@@ -38,7 +38,7 @@ export default function Navbar() {
         { title: "Admin Dashboard", href: "/admin" },
     ]
     return (
-        <>
+        <div className="max-w-7xl mx-auto w-full flex">
             <div className="flex w-full justify-between items-center min-h-14 opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto">
                 <div className="flex items-center gap-2 min-w-32">
                     <div className="size-6 rounded-full bg-foreground"></div>
@@ -97,6 +97,6 @@ export default function Navbar() {
                 </NavigationMenu>
             </nav>
             <div className="fixed top-0 right-0 w-full h-full  opacity-0 peer-hover:opacity-100 -z-50 peer-hover:z-10 bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 transition-all duration-500"></div>
-        </>
+        </div>
     )
 }
