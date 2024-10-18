@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from 'next/font/google'
-import Navbar from "@/components/custom/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
 
@@ -28,8 +27,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Toaster />
-          <div className="w-full h-full min-h-screen flex flex-col max-w-7xl mx-auto px-6">
-            <Navbar />
+          <div className="w-full h-full min-h-screen flex flex-col">
             {children}
           </div>
         </ThemeProvider>
