@@ -16,7 +16,7 @@ export function ScrollCard() {
                 </>}
             >
                 <Image
-                    src={`/assets/hero/linear.webp`}
+                    src={`/assets/hero/analytics.png`}
                     alt="hero"
                     height={720}
                     width={1400}

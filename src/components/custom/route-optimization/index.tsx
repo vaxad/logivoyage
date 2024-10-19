@@ -7,7 +7,7 @@ import { useState } from 'react'
 export default function RouteOptimization({ data }: { data: RouteOptimizationCard[] }) {
     const [active, setActive] = useState(0)
     return (
-        <main className="flex bg-gradient-to-bl from-secondary/90 to-secondary/60">
+        <main className="flex bg-gradient-to-bl from-secondary/40 to-secondary/20">
             <RouteOptimizationSidebar data={data} active={active} setActive={setActive} />
             <Map data={data} active={active} />
         </main>

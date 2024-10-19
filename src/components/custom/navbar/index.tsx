@@ -38,7 +38,7 @@ export default function Navbar() {
         { title: "Admin Dashboard", href: "/admin" },
     ]
     return (
-        <div className="max-w-7xl mx-auto w-full flex">
+        <div className="max-w-7xl mx-auto w-full flex px-6">
             <div className="flex w-full justify-between items-center min-h-14 opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto">
                 <div className="flex items-center gap-2 min-w-32">
                     <div className="size-6 rounded-full bg-foreground"></div>
