@@ -1,38 +1,36 @@
 "use client"
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { LatLngExpression, LatLngTuple } from 'leaflet';
-
+import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
+import { MapProps } from "@/lib/types/route-optimization";
+import { mapDefaults } from "@/lib/types/constants";
+import MapUtilities from "./utilities";
 
-interface MapProps {
-    posix: LatLngExpression | LatLngTuple,
-    zoom?: number,
-}
 
-const defaults = {
-    zoom: 19,
-}
-
-const MapComponent = (Map: MapProps) => {
-    const { zoom = defaults.zoom, posix } = Map
+const MapComponent = ({ card }: MapProps) => {
+    const zoom = mapDefaults.zoom
 
     return (
         <MapContainer
-            center={posix}
+            center={card.journey.route[0]}
             zoom={zoom}
-            scrollWheelZoom={false}
+            scrollWheelZoom={true}
             style={{ height: "100%", width: "100%" }}
         >
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={posix} draggable={false}>
-                <Popup>Hey ! I study here</Popup>
+            <MapUtilities card={card} />
+            <Marker position={card.journey.route[0]} draggable={true}>
+                <Popup>Start Point</Popup>
             </Marker>
+            <Marker position={card.journey.route[card.journey.route.length - 1]} draggable={true}>
+                <Popup>End Point</Popup>
+            </Marker>
+            <Polyline positions={card.journey.route} />
         </MapContainer>
     )
 }
