@@ -40,9 +40,9 @@ export function RadarChartComponent() {
   return (
     <Card>
       <CardHeader className="items-center pb-4">
-        <CardTitle>Radar Chart - Grid Filled</CardTitle>
+        <CardTitle>Recent Notifications</CardTitle>
         <CardDescription>
-          Showing total visitors for the last 6 months
+          Showing total real-time view of automated alerts related to ETA and order statuses
         </CardDescription>
       </CardHeader>
       <CardContent className="pb-0">

@@ -44,9 +44,9 @@ export function AreaChartComponent() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Area Chart - Stacked</CardTitle>
+        <CardTitle>Current Stock and Asset Utilization</CardTitle>
         <CardDescription>
-          Showing total visitors for the last 6 months
+          Showing current stock levels and asset counts against set thresholds
         </CardDescription>
       </CardHeader>
       <CardContent>

@@ -46,7 +46,7 @@ export function BarChartComponent2() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Bar Chart - Stacked + Legend</CardTitle>
+        <CardTitle>ETA Notification sent each month</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>

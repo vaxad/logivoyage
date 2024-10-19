@@ -30,11 +30,11 @@ const chartData = [
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "Fulfilled",
     color: "hsl(var(--chart-1))",
   },
   mobile: {
-    label: "Mobile",
+    label: "Pending",
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig
@@ -43,7 +43,7 @@ export function BarChartComponent() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Bar Chart - Multiple</CardTitle>
+        <CardTitle>Analysis of Fulfilled VS Pending Order</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>
@@ -68,10 +68,10 @@ export function BarChartComponent() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Fulfilled order have increased 4.2%  <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          Showing for the last 6 months
         </div>
       </CardFooter>
     </Card>
