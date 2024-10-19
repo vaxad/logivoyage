@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 import {
   Area,
   AreaChart,
@@ -17,7 +16,7 @@ import {
   ReferenceLine,
   XAxis,
   YAxis,
-} from "recharts"
+} from "recharts";
 
 import {
   Card,
@@ -26,244 +25,245 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";   
+
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/chart";
+import { Separator } from "@/components/ui/separator";
 
 export default function Charts() {
   return (
-    <div className="chart-wrapper mx-auto flex max-w-full flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
-      <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
-        <Card
-          x-chunk="A bar chart showing the number of deliveries you have done in the past 7 days."
-          className="lg:max-w-lg"
-        >
-          <CardHeader className="space-y-0 pb-2">
-            <CardDescription>Today</CardDescription>
-            <CardTitle className="text-4xl tabular-nums">
-              12,584{" "}
-              <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
-                deliveries
+  <div className="chart-wrapper mx-auto flex max-w-full flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
+    <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
+      <Card
+        x-chunk="A bar chart showing the number of deliveries you have done in the past 7 days."
+        className="lg:max-w-lg"
+      >
+        <CardHeader className="space-y-0 pb-2">
+          <CardDescription>Today</CardDescription>
+          <CardTitle className="text-4xl tabular-nums">
+            12,584{" "}
+            <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
+              deliveries
+            </span>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ChartContainer
+            config={{
+              deliveries: {
+                label: "deliveries",
+                color: "hsl(var(--chart-1))",
+              },
+            }}
+          >
+            <BarChart
+              accessibilityLayer
+              margin={{
+                left: -4,
+                right: -4,
+              }}
+              data={[
+                {
+                  date: "2024-01-01",
+                  deliveries: 2000,
+                },
+                {
+                  date: "2024-01-02",
+                  deliveries: 2100,
+                },
+                {
+                  date: "2024-01-03",
+                  deliveries: 2200,
+                },
+                {
+                  date: "2024-01-04",
+                  deliveries: 1300,
+                },
+                {
+                  date: "2024-01-05",
+                  deliveries: 1400,
+                },
+                {
+                  date: "2024-01-06",
+                  deliveries: 2500,
+                },
+                {
+                  date: "2024-01-07",
+                  deliveries: 1600,
+                },
+              ]}
+            >
+              <Bar
+                dataKey="deliveries"
+                fill="var(--color-deliveries)"
+                radius={5}
+                fillOpacity={0.6}
+                activeBar={<Rectangle fillOpacity={0.8} />}
+              />
+              <XAxis
+                dataKey="date"
+                tickLine={false}
+                axisLine={false}
+                tickMargin={4}
+                tickFormatter={(value) => {
+                  return new Date(value).toLocaleDateString("en-US", {
+                    weekday: "short",
+                  });
+                }}
+              />
+              <ChartTooltip
+                defaultIndex={2}
+                content={
+                  <ChartTooltipContent
+                    hideIndicator
+                    labelFormatter={(value) => {
+                      return new Date(value).toLocaleDateString("en-US", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      });
+                    }}
+                  />
+                }
+                cursor={false}
+              />
+              <ReferenceLine
+                y={1200}
+                stroke="hsl(var(--muted-foreground))"
+                strokeDasharray="3 3"
+                strokeWidth={1}
+              >
+                <Label
+                  position="insideBottomLeft"
+                  value="Average deliveries"
+                  offset={10}
+                  fill="hsl(var(--foreground))"
+                />
+                <Label
+                  position="insideTopLeft"
+                  value="12,343"
+                  className="text-lg"
+                  fill="hsl(var(--foreground))"
+                  offset={10}
+                  startOffset={100}
+                />
+              </ReferenceLine>
+            </BarChart>
+          </ChartContainer>
+        </CardContent>
+        <CardFooter className="flex-col items-start gap-1">
+          <CardDescription>
+            Over the past 7 days, you delivered{" "}
+            <span className="font-medium text-foreground">53,305</span> orders.
+          </CardDescription>
+          <CardDescription>
+            You need{" "}
+            <span className="font-medium text-foreground">12,584</span> more
+            deliveries to reach your goal.
+          </CardDescription>
+        </CardFooter>
+      </Card>
+      <Card
+        x-chunk="A line chart showing the profit heart rate for the past 7 days."
+        className="flex flex-col lg:max-w-md"
+      >
+        <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
+          <div>
+            <CardDescription>Revenue</CardDescription>
+            <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
+              62
+              <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                k
               </span>
             </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ChartContainer
-              config={{
-                deliveries: {
-                  label: "deliveries",
-                  color: "hsl(var(--chart-1))",
-                },
+          </div>
+          <div>
+            <CardDescription>Variability</CardDescription>
+            <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
+              11
+              <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                k
+              </span>
+            </CardTitle>
+          </div>
+        </CardHeader>
+        <CardContent className="flex flex-1 items-center">
+          <ChartContainer
+            config={{
+              profit: {
+                label: "Revenue",
+                color: "hsl(var(--chart-1))",
+              },
+            }}
+            className="w-full"
+          >
+            <LineChart
+              accessibilityLayer
+              margin={{
+                left: 14,
+                right: 14,
+                top: 10,
               }}
-            >
-              <BarChart
-                accessibilityLayer
-                margin={{
-                  left: -4,
-                  right: -4,
-                }}
-                data={[
-                  {
-                    date: "2024-01-01",
-                    deliveries: 2000,
-                  },
-                  {
-                    date: "2024-01-02",
-                    deliveries: 2100,
-                  },
-                  {
-                    date: "2024-01-03",
-                    deliveries: 2200,
-                  },
-                  {
-                    date: "2024-01-04",
-                    deliveries: 1300,
-                  },
-                  {
-                    date: "2024-01-05",
-                    deliveries: 1400,
-                  },
-                  {
-                    date: "2024-01-06",
-                    deliveries: 2500,
-                  },
-                  {
-                    date: "2024-01-07",
-                    deliveries: 1600,
-                  },
-                ]}
-              >
-                <Bar
-                  dataKey="deliveries"
-                  fill="var(--color-deliveries)"
-                  radius={5}
-                  fillOpacity={0.6}
-                  activeBar={<Rectangle fillOpacity={0.8} />}
-                />
-                <XAxis
-                  dataKey="date"
-                  tickLine={false}
-                  axisLine={false}
-                  tickMargin={4}
-                  tickFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
-                      weekday: "short",
-                    })
-                  }}
-                />
-                <ChartTooltip
-                  defaultIndex={2}
-                  content={
-                    <ChartTooltipContent
-                      hideIndicator
-                      labelFormatter={(value) => {
-                        return new Date(value).toLocaleDateString("en-US", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })
-                      }}
-                    />
-                  }
-                  cursor={false}
-                />
-                <ReferenceLine
-                  y={1200}
-                  stroke="hsl(var(--muted-foreground))"
-                  strokeDasharray="3 3"
-                  strokeWidth={1}
-                >
-                  <Label
-                    position="insideBottomLeft"
-                    value="Average deliveries"
-                    offset={10}
-                    fill="hsl(var(--foreground))"
-                  />
-                  <Label
-                    position="insideTopLeft"
-                    value="12,343"
-                    className="text-lg"
-                    fill="hsl(var(--foreground))"
-                    offset={10}
-                    startOffset={100}
-                  />
-                </ReferenceLine>
-              </BarChart>
-            </ChartContainer>
-          </CardContent>
-          <CardFooter className="flex-col items-start gap-1">
-            <CardDescription>
-              Over the past 7 days, you delivered{" "}
-              <span className="font-medium text-foreground">53,305</span> orders.
-            </CardDescription>
-            <CardDescription>
-              You need{" "}
-              <span className="font-medium text-foreground">12,584</span> more
-              deliveries to reach your goal.
-            </CardDescription>
-          </CardFooter>
-        </Card>
-        <Card
-          x-chunk="A line chart showing the profit heart rate for the past 7 days."
-          className="flex flex-col lg:max-w-md"
-        >
-          <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
-            <div>
-              <CardDescription>Revenue</CardDescription>
-              <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
-                62
-                <span className="text-sm font-normal tracking-normal text-muted-foreground">
-                  k
-                </span>
-              </CardTitle>
-            </div>
-            <div>
-              <CardDescription>Variability</CardDescription>
-              <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
-                11
-                <span className="text-sm font-normal tracking-normal text-muted-foreground">
-                  k
-                </span>
-              </CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent className="flex flex-1 items-center">
-            <ChartContainer
-              config={{
-                profit: {
-                  label: "Revenue",
-                  color: "hsl(var(--chart-1))",
+              data={[
+                {
+                  date: "2024-01-01",
+                  profit: 62,
                 },
-              }}
-              className="w-full"
+                {
+                  date: "2024-01-02",
+                  profit: 72,
+                },
+                {
+                  date: "2024-01-03",
+                  profit: 35,
+                },
+                {
+                  date: "2024-01-04",
+                  profit: 62,
+                },
+                {
+                  date: "2024-01-05",
+                  profit: 52,
+                },
+                {
+                  date: "2024-01-06",
+                  profit: 62,
+                },
+                {
+                  date: "2024-01-07",
+                  profit: 70,
+                },
+              ]}
             >
-              <LineChart
-                accessibilityLayer
-                margin={{
-                  left: 14,
-                  right: 14,
-                  top: 10,
+              <CartesianGrid
+                strokeDasharray="4 4"
+                vertical={false}
+                stroke="hsl(var(--muted-foreground))"
+                strokeOpacity={0.5}
+              />
+              <YAxis hide domain={["dataMin - 10", "dataMax + 10"]} />
+              <XAxis
+                dataKey="date"
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                tickFormatter={(value) => {
+                  return new Date(value).toLocaleDateString("en-US", {
+                    weekday: "short",
+                  });
                 }}
-                data={[
-                  {
-                    date: "2024-01-01",
-                    profit: 62,
-                  },
-                  {
-                    date: "2024-01-02",
-                    profit: 72,
-                  },
-                  {
-                    date: "2024-01-03",
-                    profit: 35,
-                  },
-                  {
-                    date: "2024-01-04",
-                    profit: 62,
-                  },
-                  {
-                    date: "2024-01-05",
-                    profit: 52,
-                  },
-                  {
-                    date: "2024-01-06",
-                    profit: 62,
-                  },
-                  {
-                    date: "2024-01-07",
-                    profit: 70,
-                  },
-                ]}
-              >
-                <CartesianGrid
-                  strokeDasharray="4 4"
-                  vertical={false}
-                  stroke="hsl(var(--muted-foreground))"
-                  strokeOpacity={0.5}
-                />
-                <YAxis hide domain={["dataMin - 10", "dataMax + 10"]} />
-                <XAxis
-                  dataKey="date"
-                  tickLine={false}
-                  axisLine={false}
-                  tickMargin={8}
-                  tickFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
-                      weekday: "short",
-                    })
-                  }}
-                />
-                <Line
-                  dataKey="profit"
-                  type="natural"
-                  fill="var(--color-profit)"
-                  stroke="var(--color-profit)"
-                  strokeWidth={2}
-                  dot={false}
+              />
+              <Line
+                dataKey="profit"
+                type="natural"
+                fill="var(--color-profit)"
+                stroke="var(--color-profit)"
+                strokeWidth={2}
+                dot={false}
                   activeDot={{
                     fill: "var(--color-profit)",
                     stroke: "var(--color-profit)",
