@@ -1,4 +1,4 @@
-import SolutionsNavbar from "@/components/custom/solutions-navbar";
+import SolutionsNavbar from "@/components/custom/route-optimization/navbar";
 
 export default function RootLayout({
     children,
