@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Bell, LocateIcon, MessagesSquareIcon, Package, Sidebar, User } from "lucide-react";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { ModeToggle } from "@/components/ui/theme-toggler";
+import { Bell, LocateIcon, MessagesSquareIcon, Package, User } from "lucide-react";
 
 export default function SolutionsNavbar() {
     return (
         <section className="flex py-4 px-12 bg-background shadow-md justify-between items-center z-[1000]">
             <div className="flex">
-                <Button variant="secondary" className="bg-secondary/30 text-secondary rounded-md !p-2">
-                    <Sidebar size={24} />
-                </Button>
+                <SidebarTrigger variant="ghost" className="bg-secondary/30 text-secondary rounded-md !p-2" />
                 <nav className="pl-24 flex gap-4">
                     <Button variant="ghost" className="bg-secondary/30 text-secondary rounded-md !p-2">
                         <Package size={24} />
@@ -30,6 +30,7 @@ export default function SolutionsNavbar() {
                     <Button variant="ghost" className="bg-secondary/30 text-secondary rounded-md !p-2">
                         <User size={24} />
                     </Button>
+                    <ModeToggle />
                 </nav>
             </div>
         </section>

@@ -1,7 +1,14 @@
-import { statusToColor, statusToIcon, statusToMessage } from "@/lib/types/constants"
-import { RouteOptimizationCardProps } from "@/lib/types/route-optimization"
+import { statusToColor, statusToMessage } from "@/lib/types/constants"
+import { RouteOptimizationCardProps, Status } from "@/lib/types/route-optimization"
 import { cn } from "@/lib/utils"
+import { ReactNode } from "react"
+import { HomeIcon, Receipt, Truck } from "lucide-react"
 
+export const statusToIcon: Record<Status, ReactNode> = {
+    "completed": <div className=" p-2 rounded-lg bg-blue-400/40 w-fit h-fit"><Receipt style={{ color: statusToColor["completed"] }} size={24} /></div>,
+    "pending": <div className=" p-2 rounded-lg bg-yellow-400/40 w-fit h-fit"><Truck style={{ color: statusToColor["pending"] }} size={24} /></div>,
+    "ready": <div className=" p-2 rounded-lg bg-green-400/40 w-fit h-fit"><HomeIcon style={{ color: statusToColor["ready"] }} size={24} /></div>
+}
 export default function SidebarCard({ status, id, journey, price, title, handleClick, isActive }: RouteOptimizationCardProps) {
     return (
         <div onClick={handleClick} className={cn(`bg-background p-6 rounded-lg flex gap-4 shadow-lg hover:scale-[1.01] transition-all`, isActive && "border-2 border-foreground")}>

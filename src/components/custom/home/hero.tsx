@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { CustomToolTip } from "@/components/ui/tooltip"
 import * as motion from "framer-motion/client"
 import { LogsIcon, Ship, Train, Truck, WebcamIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -13,9 +14,11 @@ export default function Hero() {
             <motion.h1 animate={{ y: 0, opacity: 1 }} initial={{ y: 100, opacity: 0 }} transition={{ duration: 1, ease: "anticipate" }} className="text-7xl font-extrabold [line-height:1.1] text-center pt-48 break-keep hyphens-none">
                 Revolutionizing logistics with data&#8209;driven efficiency and cutting&#8209;edge technology.
             </motion.h1>
-            <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ duration: 0.25, delay: 1, ease: "circOut" }}>
-                <Button className="rounded-full w-fit text-xl font-bold py-8 px-8 mt-12">Schedule a Demo</Button>
-            </motion.div>
+            <Link href="/analytics">
+                <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ duration: 0.25, delay: 1, ease: "circOut" }}>
+                    <Button className="rounded-full w-fit text-xl font-bold py-8 px-8 mt-12">Get Started</Button>
+                </motion.div>
+            </Link>
             <div className="h-[40vh] w-screen flex bg-gradient-to-b from-transparent to-secondary justify-center items-center gap-12">
                 <motion.div animate={{ opacity: 1, scale: 1 }} initial={{ opacity: 0, scale: 0 }} transition={{ duration: 0.5, delay: 1.2, ease: "backInOut" }}>
                     <CustomToolTip content="Track your shipments in real-time" trigger={<WebcamIcon size={50} />} />
