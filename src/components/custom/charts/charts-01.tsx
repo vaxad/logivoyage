@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Area,
@@ -17,7 +17,7 @@ import {
   ReferenceLine,
   XAxis,
   YAxis,
-} from "recharts"
+} from "recharts";
 
 import {
   Card,
@@ -26,13 +26,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/chart";
+import { Separator } from "@/components/ui/separator";
 
 export default function Charts() {
   return (
@@ -112,7 +112,7 @@ export default function Charts() {
                   tickFormatter={(value) => {
                     return new Date(value).toLocaleDateString("en-US", {
                       weekday: "short",
-                    })
+                    });
                   }}
                 />
                 <ChartTooltip
@@ -125,7 +125,7 @@ export default function Charts() {
                           day: "numeric",
                           month: "long",
                           year: "numeric",
-                        })
+                        });
                       }}
                     />
                   }
@@ -158,7 +158,8 @@ export default function Charts() {
           <CardFooter className="flex-col items-start gap-1">
             <CardDescription>
               Over the past 7 days, you delivered{" "}
-              <span className="font-medium text-foreground">53,305</span> orders.
+              <span className="font-medium text-foreground">53,305</span>{" "}
+              orders.
             </CardDescription>
             <CardDescription>
               You need{" "}
@@ -254,7 +255,7 @@ export default function Charts() {
                   tickFormatter={(value) => {
                     return new Date(value).toLocaleDateString("en-US", {
                       weekday: "short",
-                    })
+                    });
                   }}
                 />
                 <Line
@@ -279,7 +280,7 @@ export default function Charts() {
                           day: "numeric",
                           month: "long",
                           year: "numeric",
-                        })
+                        });
                       }}
                     />
                   }
@@ -298,7 +299,8 @@ export default function Charts() {
           <CardHeader>
             <CardTitle>Progress</CardTitle>
             <CardDescription>
-              You&apos;re average more deliveries a day this year than last year.
+              You&apos;re average more deliveries a day this year than last
+              year.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
@@ -413,8 +415,7 @@ export default function Charts() {
           <CardHeader className="p-4 pb-0">
             <CardTitle>Profit</CardTitle>
             <CardDescription>
-              Over the last 7 days, your revenue was 12.5 k
-              per day.
+              Over the last 7 days, your revenue was 12.5 k per day.
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-row items-baseline gap-4 p-4 pt-0">
@@ -885,5 +886,5 @@ export default function Charts() {
         </Card>
       </div>
     </div>
-  )
+  );
 }

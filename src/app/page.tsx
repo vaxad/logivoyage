@@ -7,7 +7,9 @@ import Diversity from "@/components/custom/home/diversity";
 import Expanding from "@/components/custom/home/expanding";
 import Learn from "@/components/custom/home/learn";
 import Navbar from "@/components/custom/navbar";
-const Bars = dynamic(() => import("@/components/custom/home/bars"), { ssr: false });
+const Bars = dynamic(() => import("@/components/custom/home/bars"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
@@ -22,7 +24,6 @@ export default function Home() {
         <Expanding />
         <Learn />
       </main>
-
     </Lenis>
   );
 }

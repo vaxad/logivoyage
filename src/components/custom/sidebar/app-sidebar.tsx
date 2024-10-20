@@ -1,168 +1,157 @@
-"use client"
+import * as React from "react";
 
-import * as React from "react"
-import {
-  // AudioWaveform,
-  BookOpen,
-  Bot,
-  // Command,
-  Frame,
-  GalleryVerticalEnd,
-  // Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
-} from "lucide-react"
-
-import { NavMain } from "@/components/custom/sidebar/nav-main"
-import { NavProjects } from "@/components/custom/sidebar/nav-projects"
-import { NavUser } from "@/components/custom/sidebar/nav-user"
-import { TeamSwitcher } from "@/components/custom/sidebar/team-switcher"
+import { SearchForm } from "@/components/custom/sidebar/search-form";
+import { VersionSwitcher } from "@/components/custom/sidebar/version-switcher";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
   SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
   SidebarRail,
-} from "@/components/ui/sidebar"
-import Link from "next/link"
+} from "@/components/ui/sidebar";
+import Link from "next/link";
 
 // This is sample data.
 const data = {
-  user: {
-    name: "code voyagers",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  teams: [
-    {
-      name: "LogiVoyage",
-      logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    }
-  ],
+  versions: ["1.0.1"],
   navMain: [
     {
+      title: "Business Intelligence",
+      url: "",
+      items: [
+        {
+          title: "Dashboard",
+          url: "/dashboard",
+        },
+        {
+          title: "Analytics",
+          url: "/analytics",
+        },
+      ],
+    },
+    {
       title: "Solutions",
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
+      url: "",
       items: [
         {
           title: "Route Optimization",
           url: "/route-optimization",
         },
         {
-          title: "Cost Opimization",
-          url: "/cost-optimization",
+          title: "Inventory Management",
+          url: "/inventory-management",
+          // isActive: true,
         },
         {
           title: "Asset Utilization",
           url: "/asset-utilization",
         },
+        // {
+        //   title: "Caching",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Styling",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Optimizing",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Configuring",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Testing",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Authentication",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Deploying",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Upgrading",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Examples",
+        //   url: "#",
+        // },
       ],
     },
     {
-      title: "Models",
-      url: "#",
-      icon: Bot,
+      title: "How it works?",
+      url: "",
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Architecture",
+          url: "/architecture",
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "Usage",
+          url: "/usage",
         },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+        // {
+        //   title: "Functions",
+        //   url: "#",
+        // },
+        // {
+        //   title: "next.config.js Options",
+        //   url: "#",
+        // },
+        // {
+        //   title: "CLI",
+        //   url: "#",
+        // },
+        // {
+        //   title: "Edge Runtime",
+        //   url: "#",
+        // },
       ],
     },
   ],
-  projects: [
-    {
-      name: "Dashboard",
-      url: "/dashboard",
-      icon: Frame,
-    },
-    {
-      name: "Analytics",
-      url: "/analytics",
-      icon: PieChart,
-    },
-    // {
-    //   name: "Travel",
-    //   url: "#",
-    //   icon: Map,
-    // },
-  ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" className="z-[2000]" {...props} >
+    <Sidebar {...props}>
       <SidebarHeader>
-        <Link href="/">
-          <TeamSwitcher teams={data.teams} />
-        </Link>
+        <VersionSwitcher
+          versions={data.versions}
+          defaultVersion={data.versions[0]}
+        />
+        <SearchForm />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        {/* We create a SidebarGroup for each parent. */}
+        {data.navMain.map((item) => (
+          <SidebarGroup key={item.title}>
+            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {item.items.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild url={item.url}>
+                      <Link href={item.url}>{item.title}</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ))}
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
