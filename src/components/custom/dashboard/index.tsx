@@ -2,12 +2,12 @@ import Link from "next/link"
 import {
     Activity,
     ArrowUpRight,
-    CircleUser,
+    // CircleUser,
     CreditCard,
     DollarSign,
-    Menu,
-    Package2,
-    Search,
+    // Menu,
+    // Package2,
+    // Search,
     Users,
 } from "lucide-react"
 
@@ -25,16 +25,16 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+// import {
+//     DropdownMenu,
+//     DropdownMenuContent,
+//     DropdownMenuItem,
+//     DropdownMenuLabel,
+//     DropdownMenuSeparator,
+//     DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu"
+// import { Input } from "@/components/ui/input"
+// import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import {
     Table,
     TableBody,
@@ -47,7 +47,7 @@ import {
 export default function Dashboard() {
     return (
         <div className="flex min-h-screen w-full flex-col">
-            <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+            {/* <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
                 <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
                     <Link
                         href="#"
@@ -165,7 +165,7 @@ export default function Dashboard() {
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
-            </header>
+            </header> */}
             <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
                 <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
                     <Card x-chunk="A card showing the total revenue in USD and the percentage difference from last month.">

@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from "react"
 
 export enum Status {
     READY = "ready",
-    PENDIING = "pending",
+    PENDING = "pending",
     COMPLETED = "completed",
 }
 export interface RouteOptimizationCard {
@@ -16,6 +16,33 @@ export interface RouteOptimizationCard {
         progress: number,
         route: LatLngTuple[]
     },
+    vehicle : {
+        company: string,
+        model: string,
+        space: number,
+        volume: number,
+        weight: number,
+    },
+    order: {
+        title: string,
+        quantity: number,
+        weight: number,
+        volume: number,
+        payment: string,
+    }
+    history:
+        {
+            id: string,
+            status: string,
+            method: string,
+            amount: number,
+        }[],
+    checkpoints: 
+        {
+            title: string,
+            progress: number,
+            date: string,
+        }[]
     price: number,
 }
 

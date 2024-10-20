@@ -52,7 +52,7 @@ export default function Navbar() {
                     <ModeToggle />
                 </div>
             </div>
-            <nav className="flex peer fixed top-2 rounded border border-foreground p-0.5 w-fit left-1/2 -translate-x-1/2 bg-background z-50">
+            <nav className="hidden ~flex peer fixed top-2 rounded border border-foreground p-0.5 w-fit left-1/2 -translate-x-1/2 bg-background z-50">
                 <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationMenuItem>

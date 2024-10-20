@@ -14,7 +14,7 @@ export default function Hero() {
             <motion.h1 animate={{ y: 0, opacity: 1 }} initial={{ y: 100, opacity: 0 }} transition={{ duration: 1, ease: "anticipate" }} className="text-7xl font-extrabold [line-height:1.1] text-center pt-48 break-keep hyphens-none">
                 Revolutionizing logistics with data&#8209;driven efficiency and cutting&#8209;edge technology.
             </motion.h1>
-            <Link href="/analytics">
+            <Link href="/dashboard">
                 <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ duration: 0.25, delay: 1, ease: "circOut" }}>
                     <Button className="rounded-full w-fit text-xl font-bold py-8 px-8 mt-12">Get Started</Button>
                 </motion.div>

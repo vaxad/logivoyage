@@ -8,7 +8,7 @@ export default function Map({ data, active }: RouteOptimizationMapProps) {
     const activeCard = data[active]
 
     return (
-        <section className="h-screen w-full">
+        <section className="h-full w-full rounded-xl overflow-clip">
             <MapComponent card={activeCard} />
         </section>
     )
