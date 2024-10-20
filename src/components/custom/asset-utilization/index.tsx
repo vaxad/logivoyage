@@ -2,10 +2,23 @@
 
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@/components/ui/table";
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from "recharts";
-
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+} from "recharts";
 
 const data = [
   { name: "Jan", utilization: 40, pending: 24 },
@@ -13,7 +26,6 @@ const data = [
   { name: "Mar", utilization: 20, pending: 98 },
   { name: "Apr", utilization: 27, pending: 39 },
 ];
-
 
 const incomingData = [
   { asset: "Incoming Asset 1", status: "In Use", usage: "85%" },
