@@ -6,6 +6,12 @@ export enum Status {
   PENDING = "pending",
   COMPLETED = "completed",
 }
+
+export enum Optimization {
+  FASTEST = "fastest",
+  SHORTEST = "shortest",
+  CHEAPEST = "cheapest",
+}
 export interface RouteOptimizationCard {
   title: string;
   id: string;

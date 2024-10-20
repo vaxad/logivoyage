@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { LocateIcon, MessagesSquareIcon, Package } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function RouteOptimizationNavbar() {
@@ -9,12 +10,14 @@ export default function RouteOptimizationNavbar() {
   if (pathname !== "/route-optimization") return <></>;
   return (
     <nav className="pl-40 flex gap-4">
-      <Button
-        variant="ghost"
-        className="bg-primary/30 text-primary rounded-md !p-2"
-      >
-        <Package size={24} />
-      </Button>
+      <Link href="/route-optimization/create">
+        <Button
+          variant="ghost"
+          className="bg-primary/30 text-primary rounded-md !p-2"
+        >
+          <Package size={24} />
+        </Button>
+      </Link>
       <Button
         variant="ghost"
         className="bg-primary/30 text-primary rounded-md !p-2"
