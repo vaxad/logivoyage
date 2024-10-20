@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { AreaChartComponent} from "@/components/custom/charts/area-chart";
 import { BarChartComponent } from "@/components/custom/charts/bar-chart";
 import { BarChartComponent2 } from "@/components/custom/charts/bar-chart-2";
@@ -30,3 +31,11 @@ export default function Home() {
       </div>
           );
         }
+=======
+import Dashboard from "@/components/custom/dashboard";
+import React from "react";
+
+export default function dashboardPage() {
+  return <Dashboard />;
+}
+>>>>>>> ce6664ce4ecb37b419879240cf0e7800c2501f03

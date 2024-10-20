@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from 'next/font/google'
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
 
 const font = Inter({
-  subsets: ['latin'],
+  subsets: ["latin"],
 });
 export const metadata: Metadata = {
   title: "LogiVoyage",
