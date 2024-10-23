@@ -51,7 +51,7 @@ const data = {
           url: "/asset-utilization",
         },
         {
-          title: "Route Optimization",
+          title: "Routes",
           url: "/route-optimization",
         },
         {

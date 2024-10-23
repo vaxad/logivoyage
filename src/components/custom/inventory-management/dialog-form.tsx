@@ -16,12 +16,12 @@ export function DialogForm() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Add Order</Button>
+        <Button variant="outline">Add Item</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Add Order</DialogTitle>
-          <DialogDescription>Add orders to your inventory.</DialogDescription>
+          <DialogTitle>Add Item</DialogTitle>
+          <DialogDescription>Add item to your inventory.</DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
@@ -78,7 +78,7 @@ export function DialogForm() {
             </Label>
             <Input
               id="amount"
-              defaultValue="Electronics"
+              defaultValue="250"
               className="col-span-3"
             />
           </div>

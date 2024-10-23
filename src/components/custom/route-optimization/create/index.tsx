@@ -31,6 +31,8 @@ import {
   StyleSheet,
   PDFDownloadLink,
 } from "@react-pdf/renderer";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const styles = StyleSheet.create({
   page: {
@@ -101,7 +103,7 @@ const Invoice = ({ data }: { data: FormValues }) => (
 );
 export default function CreateRouteForm() {
   const form = useRouteOptimizationForm();
-
+  const router = useRouter();
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
   }
@@ -231,14 +233,20 @@ export default function CreateRouteForm() {
         />
         <div className="flex w-full justify-between">
           {/* <Button type="submit">Submit</Button> */}
+          {/* <Link href={`/route-optimization`} onClick={() => toast(`Shipment created for ID:${form.getValues().id || "GTFR45GF3HG"}`)}> */}
           <PDFDownloadLink
             style={{ textDecoration: "none" }}
             className={buttonVariants({ variant: "default" })}
             document={<Invoice data={form.getValues()} />}
+            onClick={() => {
+              router.push(`/route-optimization`)
+              toast.success(`Shipment created for ID:${form.getValues().id || "GTFR45GF3HG"}`)
+            }}
             fileName="invoice.pdf"
           >
-            Download PDF
+            Create
           </PDFDownloadLink>
+          {/* </Link> */}
           <Button
             onClick={() => form.reset()}
             type="reset"

@@ -248,10 +248,10 @@ export default function InventoryManagement() {
                   <DropdownMenuLabel>Filter by</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuCheckboxItem checked>
-                    Fulfilled
+                    All
                   </DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem>Declined</DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem>Refunded</DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem>Category</DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem>Aisle Number</DropdownMenuCheckboxItem>
                 </DropdownMenuContent>
               </DropdownMenu>
               <Button size="sm" variant="outline" className="h-7 gap-1 text-sm">
