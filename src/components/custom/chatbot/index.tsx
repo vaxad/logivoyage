@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useChat } from "ai/react";
+import { Message, useChat } from "ai/react";
 import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,22 +16,27 @@ const mockMessages = [
   "Shipment: Textile from Mumbai to Dubai - Delivered",
 ];
 
-type Message = {
-  id: number;
-  role: "system" | "user";
-  content: string;
-  createdAt: Date;
-};
+// type Message = {
+//   id: number;
+//   role: "system" | "user";
+//   content: string;
+//   createdAt: Date;
+// };
 export default function Chatbot() {
   const { messages, input, handleInputChange, setMessages, setInput } =
     useChat();
-  console.log({ messages });
+  //({ messages });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setInput("");
     setMessages((prev: Message[]) => [
       ...prev,
-      { id: prev.length, role: "user", content: input, createdAt: new Date() },
+      {
+        id: String(prev.length),
+        role: "user",
+        content: input,
+        createdAt: new Date(),
+      },
     ]);
     const response =
       mockMessages[Math.ceil(messages.length / 2 - 1) % mockMessages.length];
@@ -39,7 +44,7 @@ export default function Chatbot() {
     setMessages((prev: Message[]) => [
       ...prev,
       {
-        id: prev.length,
+        id: String(prev.length),
         role: "system",
         content: response,
         createdAt: new Date(),
@@ -50,7 +55,7 @@ export default function Chatbot() {
   useEffect(() => {
     setMessages([
       {
-        id: 0,
+        id: "0",
         role: "system",
         content: "Welcome to the LogiVoyage Support! How may I help you?",
         createdAt: new Date(),
