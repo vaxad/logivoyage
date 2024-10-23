@@ -97,7 +97,7 @@ export function PieChartComponent() {
           </SelectTrigger>
           <SelectContent align="end" className="rounded-xl">
             {months.map((key) => {
-              console.log(key);
+              //(key);
               const config = chartConfig[key as keyof typeof chartConfig];
 
               if (!config) {
