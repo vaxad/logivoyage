@@ -10,7 +10,7 @@ export default function RouteOptimizationNavbar() {
   if (pathname !== "/route-optimization") return <></>;
   return (
     <nav className="pl-40 flex gap-4">
-      <Link href="/route-optimization/create">
+      <Link href="/route-optimization/create-shipment">
         <Button
           variant="ghost"
           className="bg-primary/30 text-primary rounded-md !p-2"

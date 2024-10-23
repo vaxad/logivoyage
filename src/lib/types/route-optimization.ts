@@ -12,15 +12,23 @@ export enum Optimization {
   SHORTEST = "shortest",
   CHEAPEST = "cheapest",
 }
+
+export interface WeatherData {
+  weather: string;
+  chances: number;
+}
 export interface RouteOptimizationCard {
   title: string;
   id: string;
   status: Status;
+  weatherData: WeatherData[];
   journey: {
     from: string;
+    via?: string[];
     to: string;
     progress: number;
     route: LatLngTuple[];
+    viaRoute?: LatLngTuple[];
   };
   vehicle: {
     company: string;
