@@ -32,6 +32,12 @@ const MapComponent = ({ card }: MapProps) => {
       <Marker position={card.journey.route[0]} draggable={true}>
         <Popup>Start Point</Popup>
       </Marker>
+      {card.journey.viaRoute &&
+        card.journey.viaRoute.map((via, idx) => (
+          <Marker key={idx} opacity={0.5} position={via} draggable={true}>
+            <Popup>Via Point</Popup>
+          </Marker>
+        ))}
       <Marker
         position={card.journey.route[card.journey.route.length - 1]}
         draggable={true}

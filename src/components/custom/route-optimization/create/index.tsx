@@ -1,7 +1,7 @@
 "use client";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -12,7 +12,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import formSchema from "@/lib/types/form-schema";
-import useRouteOptimizationForm from "@/hooks/use-route-optimization-form";
+import useRouteOptimizationForm, {
+  FormValues,
+} from "@/hooks/use-route-optimization-form";
 import {
   Select,
   SelectContent,
@@ -21,7 +23,82 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Optimization, Status } from "@/lib/types/route-optimization";
+import {
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  PDFDownloadLink,
+} from "@react-pdf/renderer";
 
+const styles = StyleSheet.create({
+  page: {
+    padding: 30,
+    fontSize: 12,
+  },
+  section: {
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 18,
+    marginBottom: 20,
+  },
+  label: {
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  data: {
+    marginBottom: 10,
+  },
+  footer: {
+    marginTop: 20,
+    textAlign: "center",
+    fontSize: 10,
+  },
+});
+
+// The Invoice component to create the PDF structure
+const Invoice = ({ data }: { data: FormValues }) => (
+  <Document>
+    <Page size="A4" style={styles.page}>
+      <Text style={styles.title}>Invoice</Text>
+      <View style={styles.section}>
+        <Text style={styles.label}>Item Name</Text>
+        <Text style={styles.data}>{data.title}</Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.label}>ID</Text>
+        <Text style={styles.data}>{data.id}</Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.label}>Optimization</Text>
+        <Text style={styles.data}>{data.optimization}</Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.label}>Status</Text>
+        <Text style={styles.data}>{data.status}</Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.label}>From</Text>
+        <Text style={styles.data}>{data.journey.from}</Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.label}>To</Text>
+        <Text style={styles.data}>{data.journey.to}</Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.label}>Progress</Text>
+        <Text style={styles.data}>{data.journey.progress}</Text>
+      </View>
+      <View style={styles.section}>
+        <Text style={styles.label}>Price</Text>
+        <Text style={styles.data}>{data.price}</Text>
+      </View>
+      <Text style={styles.footer}>Thank you for your business!</Text>
+    </Page>
+  </Document>
+);
 export default function CreateRouteForm() {
   const form = useRouteOptimizationForm();
 
@@ -40,7 +117,7 @@ export default function CreateRouteForm() {
           name="title"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Title</FormLabel>
+              <FormLabel>Item Name</FormLabel>
               <FormControl>
                 <Input placeholder="Shipment title" {...field} />
               </FormControl>
@@ -155,79 +232,6 @@ export default function CreateRouteForm() {
         />
         <FormField
           control={form.control}
-          name="vehicle.company"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Vehicle Company</FormLabel>
-              <FormControl>
-                <Input placeholder="Company name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="vehicle.model"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Vehicle Model</FormLabel>
-              <FormControl>
-                <Input placeholder="Model name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="vehicle.space"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Vehicle Space</FormLabel>
-              <FormControl>
-                <Input
-                  type="number"
-                  {...field}
-                  onChange={(e) => field.onChange(parseFloat(e.target.value))}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="order.title"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Order Title</FormLabel>
-              <FormControl>
-                <Input placeholder="Order title" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="order.quantity"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Order Quantity</FormLabel>
-              <FormControl>
-                <Input
-                  type="number"
-                  {...field}
-                  onChange={(e) => field.onChange(parseInt(e.target.value))}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="price"
           render={({ field }) => (
             <FormItem>
@@ -244,7 +248,15 @@ export default function CreateRouteForm() {
           )}
         />
         <div className="flex w-full justify-between">
-          <Button type="submit">Submit</Button>
+          {/* <Button type="submit">Submit</Button> */}
+          <PDFDownloadLink
+            style={{ textDecoration: "none" }}
+            className={buttonVariants({ variant: "default" })}
+            document={<Invoice data={form.getValues()} />}
+            fileName="invoice.pdf"
+          >
+            Download PDF
+          </PDFDownloadLink>
           <Button
             onClick={() => form.reset()}
             type="reset"

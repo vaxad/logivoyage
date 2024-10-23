@@ -33,14 +33,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
 import CircularProgress from "@/components/ui/circular-progress";
+import { DialogForm } from "./dialog-form";
 
 const sampleTableData = [
   {
     title: "Textile Shipment",
     from: "Shanghai, China",
     to: "Los Angeles, USA",
-    status: "In Transit",
-    type: "Airway",
+    aisleNo: "A12",
+    category: "Textiles",
     date: "2023-06-23",
     amount: "$250.00",
   },
@@ -48,8 +49,8 @@ const sampleTableData = [
     title: "Electronics Shipment",
     from: "Shenzhen, China",
     to: "New York, USA",
-    status: "Delivered",
-    type: "Sea",
+    aisleNo: "B05",
+    category: "Electronics",
     date: "2023-06-24",
     amount: "$150.00",
   },
@@ -57,17 +58,62 @@ const sampleTableData = [
     title: "Furniture Shipment",
     from: "Guangzhou, China",
     to: "London, UK",
-    status: "In Transit",
-    type: "Airway",
+    aisleNo: "C02",
+    category: "Furniture",
     date: "2023-06-25",
     amount: "$350.00",
+  },
+  {
+    title: "Clothing Shipment",
+    from: "Beijing, China",
+    to: "Paris, France",
+    aisleNo: "D15",
+    category: "Clothing",
+    date: "2023-06-23",
+    amount: "$275.00",
+  },
+  {
+    title: "Machinery Shipment",
+    from: "Tianjin, China",
+    to: "Berlin, Germany",
+    aisleNo: "E08",
+    category: "Machinery",
+    date: "2023-06-24",
+    amount: "$500.00",
+  },
+  {
+    title: "Pharmaceutical Shipment",
+    from: "Wuhan, China",
+    to: "Toronto, Canada",
+    aisleNo: "F10",
+    category: "Pharmaceuticals",
+    date: "2023-06-25",
+    amount: "$400.00",
+  },
+  {
+    title: "Automobile Parts Shipment",
+    from: "Nanjing, China",
+    to: "Detroit, USA",
+    aisleNo: "G03",
+    category: "Automobile Parts",
+    date: "2023-06-23",
+    amount: "$600.00",
+  },
+  {
+    title: "Electronics Shipment",
+    from: "Shenzhen, China",
+    to: "New York, USA",
+    aisleNo: "B05",
+    category: "Electronics",
+    date: "2023-06-24",
+    amount: "$150.00",
   },
   {
     title: "Textile Shipment",
     from: "Shanghai, China",
     to: "Los Angeles, USA",
-    status: "In Transit",
-    type: "Airway",
+    aisleNo: "A12",
+    category: "Textiles",
     date: "2023-06-23",
     amount: "$250.00",
   },
@@ -75,8 +121,8 @@ const sampleTableData = [
     title: "Electronics Shipment",
     from: "Shenzhen, China",
     to: "New York, USA",
-    status: "Delivered",
-    type: "Sea",
+    aisleNo: "B05",
+    category: "Electronics",
     date: "2023-06-24",
     amount: "$150.00",
   },
@@ -84,90 +130,20 @@ const sampleTableData = [
     title: "Furniture Shipment",
     from: "Guangzhou, China",
     to: "London, UK",
-    status: "In Transit",
-    type: "Airway",
+    aisleNo: "C02",
+    category: "Furniture",
     date: "2023-06-25",
     amount: "$350.00",
-  },
-  {
-    title: "Textile Shipment",
-    from: "Shanghai, China",
-    to: "Los Angeles, USA",
-    status: "In Transit",
-    type: "Airway",
-    date: "2023-06-23",
-    amount: "$250.00",
-  },
-  {
-    title: "Electronics Shipment",
-    from: "Shenzhen, China",
-    to: "New York, USA",
-    status: "Delivered",
-    type: "Sea",
-    date: "2023-06-24",
-    amount: "$150.00",
-  },
-  {
-    title: "Furniture Shipment",
-    from: "Guangzhou, China",
-    to: "London, UK",
-    status: "In Transit",
-    type: "Airway",
-    date: "2023-06-25",
-    amount: "$350.00",
-  },
-  {
-    title: "Textile Shipment",
-    from: "Shanghai, China",
-    to: "Los Angeles, USA",
-    status: "In Transit",
-    type: "Airway",
-    date: "2023-06-23",
-    amount: "$250.00",
-  },
-  {
-    title: "Electronics Shipment",
-    from: "Shenzhen, China",
-    to: "New York, USA",
-    status: "Delivered",
-    type: "Sea",
-    date: "2023-06-24",
-    amount: "$150.00",
-  },
-  {
-    title: "Furniture Shipment",
-    from: "Guangzhou, China",
-    to: "London, UK",
-    status: "In Transit",
-    type: "Airway",
-    date: "2023-06-25",
-    amount: "$350.00",
-  },
-  {
-    title: "Textile Shipment",
-    from: "Shanghai, China",
-    to: "Los Angeles, USA",
-    status: "In Transit",
-    type: "Airway",
-    date: "2023-06-23",
-    amount: "$250.00",
-  },
-  {
-    title: "Electronics Shipment",
-    from: "Shenzhen, China",
-    to: "New York, USA",
-    status: "Delivered",
-    type: "Sea",
-    date: "2023-06-24",
-    amount: "$150.00",
   },
 ];
+
 export default function InventoryManagement() {
   return (
     <div className="flex flex-col p-4 gap-4">
       <div className="w-full flex justify-between items-center">
         <h1 className="text-2xl font-bold">Inventory Management</h1>
-        <Button className="font-semibold text-lg p-4">Add Order</Button>
+        {/* <Button className="font-semibold text-lg p-4">Add Order</Button> */}
+        <DialogForm />
       </div>
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <Card x-chunk="A card showing the total revenue in USD and the percentage difference from last month.">
@@ -287,10 +263,8 @@ export default function InventoryManagement() {
           <TabsContent value="week">
             <Card x-chunk="A table of recent orders showing the following columns: Customer, Type, Status, Date, and Amount.">
               <CardHeader className="px-7">
-                <CardTitle>Orders</CardTitle>
-                <CardDescription>
-                  Recent orders from your store.
-                </CardDescription>
+                <CardTitle>Stock</CardTitle>
+                <CardDescription>Stock from your inventory.</CardDescription>
               </CardHeader>
               <CardContent>
                 <Table>
@@ -298,10 +272,10 @@ export default function InventoryManagement() {
                     <TableRow>
                       <TableHead>Shipment</TableHead>
                       <TableHead className="hidden sm:table-cell">
-                        Type
+                        Category
                       </TableHead>
                       <TableHead className="hidden sm:table-cell">
-                        Status
+                        Aisle Number
                       </TableHead>
                       <TableHead className="hidden md:table-cell">
                         Date
@@ -320,14 +294,14 @@ export default function InventoryManagement() {
                           </div>
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
-                          {item.type}
+                          {item.category}
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
                           <Badge
                             className="text-xs text-background"
                             variant="secondary"
                           >
-                            {item.status}
+                            {item.aisleNo}
                           </Badge>
                         </TableCell>
                         <TableCell className="hidden md:table-cell">
