@@ -2,7 +2,7 @@ import * as motion from "framer-motion/client";
 
 export default function Expanding() {
   return (
-    <div className="w-screen pt-48 bg-[#d9c6ff] flex flex-col justify-center items-center">
+    <div className="w-screen pt-48 px-12 bg-[#d9c6ff] flex flex-col justify-center items-center">
       <motion.h1
         whileInView={{ opacity: 1 }}
         initial={{ opacity: 0 }}
