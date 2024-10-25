@@ -14,6 +14,12 @@ This platform is designed to optimize logistics operations by leveraging AI, and
 
 ### You can find the website hosted here: https://logivoyage.vercel.app
 
+## Branches
+This repository has two primary branches:
+
+- **main**: This branch hosts the codebase for the LogiVoyage product website.
+- **models**: This branch is dedicated to the machine learning models and data analysis. It contains the necessary code, model files, and descriptive analytics for optimizing logistics operations.
+
 
 ## Pages
 
