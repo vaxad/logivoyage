@@ -76,11 +76,7 @@ export function DialogForm() {
             <Label htmlFor="amount" className="text-right">
               Amount
             </Label>
-            <Input
-              id="amount"
-              defaultValue="250"
-              className="col-span-3"
-            />
+            <Input id="amount" defaultValue="250" className="col-span-3" />
           </div>
         </div>
         <DialogFooter>

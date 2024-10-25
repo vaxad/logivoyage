@@ -110,9 +110,7 @@ export default function CreateRouteForm() {
 
   return (
     <Form {...form}>
-      <h1 className="text-xl font-bold px-4 pt-4">
-        Create a Shipment
-      </h1>
+      <h1 className="text-xl font-bold px-4 pt-4">Create a Shipment</h1>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-4">
         <FormField
           control={form.control}
@@ -239,8 +237,10 @@ export default function CreateRouteForm() {
             className={buttonVariants({ variant: "default" })}
             document={<Invoice data={form.getValues()} />}
             onClick={() => {
-              router.push(`/route-optimization`)
-              toast.success(`Shipment created for ID:${form.getValues().id || "GTFR45GF3HG"}`)
+              router.push(`/route-optimization`);
+              toast.success(
+                `Shipment created for ID:${form.getValues().id || "GTFR45GF3HG"}`,
+              );
             }}
             fileName="invoice.pdf"
           >

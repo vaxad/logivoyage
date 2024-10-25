@@ -251,7 +251,9 @@ export default function InventoryManagement() {
                     All
                   </DropdownMenuCheckboxItem>
                   <DropdownMenuCheckboxItem>Category</DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem>Aisle Number</DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem>
+                    Aisle Number
+                  </DropdownMenuCheckboxItem>
                 </DropdownMenuContent>
               </DropdownMenu>
               <Button size="sm" variant="outline" className="h-7 gap-1 text-sm">
