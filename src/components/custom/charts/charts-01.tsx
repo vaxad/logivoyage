@@ -33,7 +33,24 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Separator } from "@/components/ui/separator";
-import AnalyticsDashboard from "@/components/ui/demandgraph";
+import { SupplyDemandGraph } from "./twin-bar";
+
+
+
+const RecommendationCard = () => (
+  <Card className="p-4 w-full h-fit bg-white shadow-lg">
+    <CardHeader>
+      <CardTitle>Recommendation</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <ul className="list-disc ml-4">
+        <li>Increase supply in March due to expected demand surge.</li>
+        <li>Focus on cost management for high-demand months.</li>
+        <li>Monitor bottlenecks in April and May for optimized delivery.</li>
+      </ul>
+    </CardContent>
+  </Card>
+);
 
 export default function Charts() {
   return (
@@ -885,7 +902,12 @@ export default function Charts() {
             </ChartContainer>
           </CardContent>
         </Card>
-        <AnalyticsDashboard/>
+      </div>
+      <div className="grid w-full flex-1">
+        <div className="flex gap-6">
+          <SupplyDemandGraph />
+          <RecommendationCard />
+        </div>
       </div>
     </div>
   );
