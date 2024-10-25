@@ -98,5 +98,5 @@ yarn build
 
 ### Website Link
 ```bash
-https://logivoyage.vercel.app/
+https://logivoyage.vercel.app
 ```
