@@ -7,7 +7,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -24,14 +23,14 @@ const data = {
       title: "Business Intelligence",
       url: "",
       items: [
-        {
-          title: "Dashboard",
-          url: "/dashboard",
-        },
-        {
-          title: "Analytics",
-          url: "/analytics",
-        },
+        // {
+        //   title: "Home",
+        //   url: "/dashboard",
+        // },
+        // {
+        //   title: "Analytics",
+        //   url: "/analytics",
+        // },
       ],
     },
     {
@@ -39,8 +38,8 @@ const data = {
       url: "",
       items: [
         {
-          title: "Route Optimization",
-          url: "/route-optimization",
+          title: "Home",
+          url: "/dashboard",
         },
         {
           title: "Inventory Management",
@@ -50,6 +49,22 @@ const data = {
         {
           title: "Asset Utilization",
           url: "/asset-utilization",
+        },
+        {
+          title: "Routes",
+          url: "/route-optimization",
+        },
+        {
+          title: "Analytics",
+          url: "/analytics",
+        },
+        {
+          title: "Sustainability",
+          url: "/sustainability",
+        },
+        {
+          title: "Support",
+          url: "/support",
         },
         // {
         //   title: "Caching",
@@ -93,14 +108,14 @@ const data = {
       title: "How it works?",
       url: "",
       items: [
-        {
-          title: "Architecture",
-          url: "/architecture",
-        },
-        {
-          title: "Usage",
-          url: "/usage",
-        },
+        // {
+        //   title: "Architecture",
+        //   url: "/architecture",
+        // },
+        // {
+        //   title: "Usage",
+        //   url: "/usage",
+        // },
         // {
         //   title: "Functions",
         //   url: "#",
@@ -136,7 +151,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* We create a SidebarGroup for each parent. */}
         {data.navMain.map((item) => (
           <SidebarGroup key={item.title}>
-            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
+            {/* <SidebarGroupLabel>{item.title}</SidebarGroupLabel> */}
             <SidebarGroupContent>
               <SidebarMenu>
                 {item.items.map((item) => (

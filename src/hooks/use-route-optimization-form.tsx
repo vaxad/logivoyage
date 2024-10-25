@@ -4,7 +4,7 @@ import formSchema from "@/lib/types/form-schema";
 import { z } from "zod";
 import { Optimization, Status } from "@/lib/types/route-optimization";
 
-type FormValues = z.infer<typeof formSchema>;
+export type FormValues = z.infer<typeof formSchema>;
 
 export default function useRouteOptimizationForm() {
   const form = useForm<FormValues>({

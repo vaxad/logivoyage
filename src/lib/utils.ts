@@ -8,3 +8,10 @@ export function cn(...inputs: ClassValue[]) {
 export function getDate(date: string | Date | number) {
   return new Date(date).toLocaleDateString();
 }
+
+export const getAvatarFallback = (name: string) => {
+  return name
+    .split(" ")
+    .map((n) => n[0].toUpperCase())
+    .join("");
+};

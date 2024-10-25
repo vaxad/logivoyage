@@ -6,7 +6,7 @@ export const statusToMessage: Record<Status, string> = {
   ready: "Ready to be shipped",
 };
 export const statusToColor: Record<Status, string> = {
-  completed: "#60a5fa",
+  completed: "#f87171",
   pending: "#facc15",
   ready: "#4ade80",
 };

@@ -6,9 +6,17 @@ const sampleData: RouteOptimizationCard[] = [
     id: "1jfdjdshbfwej",
     title: "Random Shipment",
     status: Status.COMPLETED,
+    weatherData: [
+      { weather: "sunny", chances: 275 },
+      { weather: "rainy", chances: 9 },
+      { weather: "humid", chances: 187 },
+      { weather: "cold", chances: 5 },
+      { weather: "foggy", chances: 3 },
+    ],
     price: 10000,
     journey: {
       from: "China",
+      via: ["Singapore", "Malaysia"],
       to: "Miami",
       progress: 0.9,
       route: [
@@ -17,6 +25,10 @@ const sampleData: RouteOptimizationCard[] = [
         [32.7767, -96.797],
         [29.7604, -95.3698],
         [25.7617, -80.1918],
+      ],
+      viaRoute: [
+        [32.7767, -96.797],
+        [29.7604, -95.3698],
       ],
     },
     vehicle: {
@@ -74,6 +86,13 @@ const sampleData: RouteOptimizationCard[] = [
     title: "BKC Shipment",
     status: Status.PENDING,
     price: 20000,
+    weatherData: [
+      { weather: "sunny", chances: 175 },
+      { weather: "rainy", chances: 34 },
+      { weather: "humid", chances: 127 },
+      { weather: "cold", chances: 54 },
+      { weather: "foggy", chances: 33 },
+    ],
     journey: {
       from: "Texas",
       to: "Toronto",
@@ -142,6 +161,13 @@ const sampleData: RouteOptimizationCard[] = [
     title: "Textiles",
     status: Status.READY,
     price: 30000,
+    weatherData: [
+      { weather: "sunny", chances: 235 },
+      { weather: "rainy", chances: 94 },
+      { weather: "humid", chances: 17 },
+      { weather: "cold", chances: 53 },
+      { weather: "foggy", chances: 3 },
+    ],
     journey: {
       from: "Malad",
       to: "Andheri",
@@ -206,10 +232,18 @@ const sampleData: RouteOptimizationCard[] = [
     id: "5jfhdsjkhfwe",
     title: "Medical Supplies Shipment",
     status: Status.COMPLETED,
+    weatherData: [
+      { weather: "sunny", chances: 295 },
+      { weather: "rainy", chances: 9 },
+      { weather: "humid", chances: 187 },
+      { weather: "cold", chances: 5 },
+      { weather: "foggy", chances: 3 },
+    ],
     price: 45000,
     journey: {
       from: "Germany",
       to: "Canada",
+      via: ["Finland"],
       progress: 0.8,
       route: [
         [51.1657, 10.4515],
@@ -218,6 +252,7 @@ const sampleData: RouteOptimizationCard[] = [
         [45.5017, -73.5673],
         [51.1657, 10.4515],
       ],
+      viaRoute: [[48.8566, 2.3522]],
     },
     vehicle: {
       company: "MediCargo",
@@ -264,6 +299,13 @@ const sampleData: RouteOptimizationCard[] = [
     title: "Furniture Delivery",
     status: Status.COMPLETED,
     price: 30000,
+    weatherData: [
+      { weather: "sunny", chances: 75 },
+      { weather: "rainy", chances: 394 },
+      { weather: "humid", chances: 17 },
+      { weather: "cold", chances: 152 },
+      { weather: "foggy", chances: 33 },
+    ],
     journey: {
       from: "Italy",
       to: "United Kingdom",
@@ -324,6 +366,13 @@ const sampleData: RouteOptimizationCard[] = [
     title: "Food Supplies Transport",
     status: Status.PENDING,
     price: 50000,
+    weatherData: [
+      { weather: "sunny", chances: 275 },
+      { weather: "rainy", chances: 9 },
+      { weather: "humid", chances: 187 },
+      { weather: "cold", chances: 5 },
+      { weather: "foggy", chances: 3 },
+    ],
     journey: {
       from: "California",
       to: "New York",
@@ -379,6 +428,13 @@ const sampleData: RouteOptimizationCard[] = [
     title: "Automobile Parts Delivery",
     status: Status.READY,
     price: 60000,
+    weatherData: [
+      { weather: "sunny", chances: 575 },
+      { weather: "rainy", chances: 96 },
+      { weather: "humid", chances: 17 },
+      { weather: "cold", chances: 5 },
+      { weather: "foggy", chances: 3 },
+    ],
     journey: {
       from: "Detroit",
       to: "Los Angeles",
@@ -429,6 +485,13 @@ const sampleData: RouteOptimizationCard[] = [
     title: "Pharmaceutical Delivery",
     status: Status.COMPLETED,
     price: 70000,
+    weatherData: [
+      { weather: "sunny", chances: 275 },
+      { weather: "rainy", chances: 9 },
+      { weather: "humid", chances: 187 },
+      { weather: "cold", chances: 5 },
+      { weather: "foggy", chances: 3 },
+    ],
     journey: {
       from: "India",
       to: "Dubai",

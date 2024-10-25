@@ -9,17 +9,17 @@ import { HomeIcon, Receipt, Truck } from "lucide-react";
 
 export const statusToIcon: Record<Status, ReactNode> = {
   completed: (
-    <div className=" p-2 rounded-lg bg-blue-400/40 w-fit h-fit border border-background">
+    <div className=" p-2 rounded-lg bg-red-400/40 w-fit h-fit">
       <Receipt style={{ color: statusToColor["completed"] }} size={24} />
     </div>
   ),
   pending: (
-    <div className=" p-2 rounded-lg bg-yellow-400/40 w-fit h-fit border border-background">
+    <div className=" p-2 rounded-lg bg-yellow-400/40 w-fit h-fit">
       <Truck style={{ color: statusToColor["pending"] }} size={24} />
     </div>
   ),
   ready: (
-    <div className=" p-2 rounded-lg bg-green-400/40 w-fit h-fit border border-background">
+    <div className=" p-2 rounded-lg bg-green-400/40 w-fit h-fit">
       <HomeIcon style={{ color: statusToColor["ready"] }} size={24} />
     </div>
   ),
@@ -39,17 +39,17 @@ export default function SidebarCard({
       className={cn(
         `bg-background p-4 rounded-lg flex gap-4 shadow-lg hover:scale-[1.01] transition-all hover:cursor-pointer`,
         isActive
-          ? "bg-primary/80 text-background"
+          ? "bg-primary/20"
           : " bg-slate-200/70 dark:bg-slate-800/70 text-foreground",
       )}
     >
       {statusToIcon[status]}
-      <div className="grid grid-cols-[1fr_5fr_5fr] gap-2">
+      <div className="grid grid-cols-[1fr_5fr_5fr] grid-rows-[auto] gap-2">
         <div className="col-span-3 flex flex-col">
           <h1 className="font-bold text-xl">{title}</h1>
           <p className="text-foreground/60 font-medium">{id.toUpperCase()}</p>
         </div>
-        <div className="row-span-2 flex flex-col justify-between items-center relative">
+        <div className="flex flex-col justify-between items-center relative row-span-2">
           <circle
             className={"size-2 rounded-full"}
             style={{ backgroundColor: statusToColor[status] }}
@@ -64,6 +64,13 @@ export default function SidebarCard({
         <div className="flex flex-col">
           <p className="text-xs font-bold opacity-75">From</p>
           <h1 className="text-sm font-semibold">{journey.from}</h1>
+          {journey.via &&
+            journey.via.map((item, idx) => (
+              <div key={idx} className="flex flex-col py-2">
+                <p className="text-xs font-bold opacity-75">Via:</p>
+                <h1 className="text-sm font-semibold">{item}</h1>
+              </div>
+            ))}
         </div>
 
         <div className="flex flex-col">
