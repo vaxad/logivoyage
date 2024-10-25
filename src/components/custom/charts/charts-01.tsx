@@ -35,8 +35,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { SupplyDemandGraph } from "./twin-bar";
 
-
-
 const RecommendationCard = () => (
   <Card className="p-4 w-full h-fit bg-white shadow-lg">
     <CardHeader>
