@@ -42,6 +42,55 @@ This page provides an overview of the platform's performance metrics and notific
 - **Predictive Analytics**: Machine learning-powered analytics to forecast demand, disruptions, and asset failures.
 - **Clustering & Anomaly Detection**: Identify patterns in performance and detect anomalies in logistics operations.
 
+
+
 ### 6. **Sustainability & Carbon Footprint Page**
 - **Carbon Emissions Tracker**: Track carbon emissions and fuel consumption for each logistics route.
 - **Eco-Friendly Routes**: Suggest routes and strategies to minimize environmental impact and operational costs.
+
+
+### Prerequisites
+Ensure you have Node.js and npm (or yarn) installed:
+```bash
+node -v
+npm -v
+```
+
+### Clone the Repository
+```bash
+git clone https://github.com/vaxad/logivoyage.git
+cd logivoyage
+```
+
+### Install Dependencies
+Using npm:
+```bash
+npm install
+```
+Or using yarn:
+```bash
+yarn install
+```
+
+### Running the Project
+Development
+```bash
+npm run dev
+```
+Or using yarn:
+```bash
+yarn dev
+```
+### Open http://localhost:3000 to view the app.
+
+### Production
+Build the project:
+```bash
+npm run build
+```
+Or with yarn:
+```bash
+yarn build
+```
+
+### Open http://localhost:3000 to view the app.
