@@ -1,3 +1,4 @@
+# ULIP Logixtics Hackathon 2.0
 # PS4 - Operational Efficiency and Optimization
 
 ## Overview
@@ -10,6 +11,8 @@ This platform is designed to optimize logistics operations by leveraging AI, and
 - **Process Automation**: Reduce manual processes with robotic process automation (RPA) and AI-driven automation.
 - **Data-Driven Insights**: Visualize key performance indicators, predict operational outcomes, and optimize costs with advanced data analytics.
 - **Sustainability**: Track the carbon footprint of logistics operations and suggest eco-friendly routes and fuel-saving strategies.
+
+### You can find the website hosted here: https://logivoyage.vercel.app
 
 
 ## Pages
@@ -94,9 +97,3 @@ yarn build
 ```
 
 ### Open http://localhost:3000 to view the app.
-
-
-### Website Link
-```bash
-https://logivoyage.vercel.app
-```
