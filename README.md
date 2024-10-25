@@ -11,7 +11,6 @@ This platform is designed to optimize logistics operations by leveraging AI, and
 - **Data-Driven Insights**: Visualize key performance indicators, predict operational outcomes, and optimize costs with advanced data analytics.
 - **Sustainability**: Track the carbon footprint of logistics operations and suggest eco-friendly routes and fuel-saving strategies.
 
----
 
 ## Pages
 
