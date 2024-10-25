@@ -33,6 +33,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Separator } from "@/components/ui/separator";
+import AnalyticsDashboard from "@/components/ui/demandgraph";
 
 export default function Charts() {
   return (
@@ -884,6 +885,7 @@ export default function Charts() {
             </ChartContainer>
           </CardContent>
         </Card>
+        <AnalyticsDashboard/>
       </div>
     </div>
   );
